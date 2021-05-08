@@ -80,3 +80,39 @@ const gitEmail = gitData.email;
 const gitlocation = gitData.location;
 const gitUrl = gitData.html_url;
 const gitProfileImage = gitData.avatar_url;
+
+
+var result = (`
+# ${projectTittle} 
+${projectDescription}
+\n* [Installation](#Installation)
+\n* [Instructions](#Instructions)
+\n* [License](#License)
+\n* [Contributors](#Contributors)
+\n* [Author](#Author)
+\n* [Tests](#Tests)
+## Installation
+${installationProcess}
+## Instructions
+${instruction}
+\`\`\`
+${instructionExample}
+\`\`\`
+## License 
+This project is licensed under the ${licenseName} - see the ${licenseUrl} file for details
+## Contributors
+${resultContributor}
+## Tests
+${tests}
+## Author 
+\n![ProfileImage](${gitProfileImage})
+\n**${gitName}**
+\nEmail: ${gitEmail}
+\nLocation:${gitlocation}
+\nGitHub: ${gitUrl}
+`)
+var writeResult = fs.writeFileSync(path.join(__dirname, '../GoodReadMeGenerator', 'readMe.md'), result )
+console.log("file generated....")
+    }
+
+
